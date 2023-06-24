@@ -20,14 +20,20 @@
         }
 
         $invoice = array(
-            "Number" => $_POST["Number"] ?: null,
-            "Reference" => $_POST["Reference"] ?: null,
+            "Number" => $_POST["Number"],
+            "Reference" => $_POST["Reference"],
             "Date" => $_POST["Date"],
             "DueDate" => $_POST["DueDate"],
             "ContactCode" => $_POST["ContactCode"],
             "InvoiceType" => $_POST["InvoiceType"],
-            "Status" => $_POST["Status"] ?: null,
+            "Status" => $_POST["Status"],
             "InvoiceItems" => $invoiceItems,
+            "WarehouseReceiptStatus" => $_POST["WarehouseReceiptStatus"],
+            "Others" => array(array(
+               "Title" => $_POST["Title"],
+               "Amount" => $_POST["Amount"],
+               "Add" => $_POST["Add"]
+            )),
         );
 
         $result = $api->invoiceSave($invoice);
@@ -112,6 +118,34 @@
                             <option value="4">ضایعات</option>
                         </select>
                     </div>
+
+                    <div class="align">
+                        <label for="WarehouseReceiptStatus" class="form-label">وضعیت رسید یا حواله انبار</label>
+                        <select class="form-select" name="WarehouseReceiptStatus">
+                            <option selected>انتخاب کنید</option>
+                            <option value="0">رسید یا حواله انبار صادر نشده است</option>
+                            <option value="1">رسید یا حواله انبار ناقص است</option>
+                            <option value="2">رسید یا حواله انبار کامل است</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="halign">
+                    <div class="align">
+                        <label for="Title" class="form-label">	عنوان اضافات و کسورات</label>
+                        <input type="text" name="Title" id="Title" class="form-control">
+                    </div>
+                    <div class="align">
+                        <label for="Amount" class="form-label">مقدار اضافات و کسورات</label>
+                        <input type="text" name="Amount" id="Amount" class="form-control">
+                    </div>
+                    <div class="align">
+                        <label for="Add" class="form-label">اضافات یا کسورات</label>
+                        <select name="Add" id="Add" class="form-select">
+                            <option selected>انتخاب کنید</option>
+                            <option value="true">اضافات</option>
+                            <option value="false">کسورات</option>
+                        </select>
+                    </div>
                 </div>
                 <br><br><br><br>
                 <table class="table table-light">
@@ -189,7 +223,7 @@
             let day = date.split('/')[1];
             let year = date.split('/')[2];
 
-            let dateTime = `${year}-0${month}-0${day} ${time}`;
+            let dateTime = `${year}-${month}-${day} ${time}`;
 
             $("input#dateTime").val(dateTime);
         });
@@ -207,7 +241,7 @@
             let day = date.split('/')[1];
             let year = date.split('/')[2];
 
-            let dateTime = `${year}-0${month}-0${day} ${time}`;
+            let dateTime = `${year}-${month}-${day} ${time}`;
 
             $("input#dueDateTime").val(dateTime);
         });

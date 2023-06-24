@@ -6,8 +6,8 @@ class Ssbhesabfa_Api
     public function apiRequest($method, $data = array())
     {
         //Add you apikey and login token here properly
-        $APIKEY = '#';
-        $LOGINTOKEN = '#';
+        $APIKEY = 'QZAIlbJQnCGENqB1lV0Ygx4rTIfln1yg';
+        $LOGINTOKEN = 'af014d3ed841a5d23bfd378670e2fc7e2e15d42b606f62e6a719be090b501343f45531c55f640319dd131dd9649c3709';
 
         $endpoint = 'https://api.hesabfa.com/v1/' . $method;
         $curl = curl_init();
