@@ -5,10 +5,10 @@ error_reporting(0);
     $api = new Ssbhesabfa_Api();
     global $i, $rpp, $startDate, $endDate, $project, $totalCount, $result;
 
-    if (isset($_POST["submitRequest"])) {
-        $startDate = $_POST["startDate"];
-        $endDate = $_POST["endDate"];
-        $project = $_POST["project"];
+    if(isset($_POST["submitRequest"])) {
+        $startDate = $_POST["startDate"] ? : null;
+        $endDate = $_POST["endDate"] ? : null;
+        $project = $_POST["project"] ? : null;
         $i = 0;
         $rpp = 10;
 
@@ -84,7 +84,7 @@ error_reporting(0);
             <input class="form-control" type="text" name="project">
         </div>
     </div>
-    <button name="submit" class="btn btn-primary" type="submit">نمایش</button>
+    <button name="submitRequest" class="btn btn-primary" type="submit">نمایش</button>
 </form>
 <div class="row">
     <div class="container">

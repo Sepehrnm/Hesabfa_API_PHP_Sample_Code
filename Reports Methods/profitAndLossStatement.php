@@ -4,10 +4,10 @@ include "../API/class-api.php";
 global $result;
 $api = new Ssbhesabfa_Api();
 
-if (isset($_POST["submitRequest"])) {
-    $startDate = $_POST["startDate"];
-    $endDate = $_POST["endDate"];
-    $project = $_POST["project"];
+if(isset($_POST["submitRequest"])) {
+    $startDate = $_POST["startDate"] ? : null;
+    $endDate = $_POST["endDate"] ? : null;
+    $project = $_POST["project"] ? : null;
 
     $data = array(
         'startDate' => $startDate,
@@ -114,6 +114,5 @@ if (isset($_POST["submitRequest"])) {
         </div>
     </div>
 </div>
-
 </body>
 </html>

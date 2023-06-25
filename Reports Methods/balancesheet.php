@@ -5,9 +5,9 @@ $api = new Ssbhesabfa_Api();
 global $result;
 
     if(isset($_POST["submitRequest"])) {
-        $startDate = $_POST["startDate"];
-        $endDate = $_POST["endDate"];
-        $project = $_POST["project"];
+        $startDate = $_POST["startDate"] ? : null;
+        $endDate = $_POST["endDate"] ? : null;
+        $project = $_POST["project"] ? : null;
 
         $data = array(
             'startDate' => $startDate,
