@@ -29,11 +29,6 @@
             "Status" => $_POST["Status"],
             "InvoiceItems" => $invoiceItems,
             "WarehouseReceiptStatus" => $_POST["WarehouseReceiptStatus"],
-            "Others" => array(array(
-               "Title" => $_POST["Title"],
-               "Amount" => $_POST["Amount"],
-               "Add" => $_POST["Add"]
-            )),
         );
 
         $result = $api->invoiceSave($invoice);
@@ -129,25 +124,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="halign">
-                    <div class="align">
-                        <label for="Title" class="form-label">	عنوان اضافات و کسورات</label>
-                        <input type="text" name="Title" id="Title" class="form-control">
-                    </div>
-                    <div class="align">
-                        <label for="Amount" class="form-label">مقدار اضافات و کسورات</label>
-                        <input type="text" name="Amount" id="Amount" class="form-control">
-                    </div>
-                    <div class="align">
-                        <label for="Add" class="form-label">اضافات یا کسورات</label>
-                        <select name="Add" id="Add" class="form-select">
-                            <option selected>انتخاب کنید</option>
-                            <option value="true">اضافات</option>
-                            <option value="false">کسورات</option>
-                        </select>
-                    </div>
-                </div>
-                <br><br><br><br>
+                <br><br>
                 <table class="table table-light">
                     <thead>
                         <tr>
