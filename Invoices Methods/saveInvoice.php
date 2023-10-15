@@ -28,8 +28,11 @@
             "InvoiceType" => $_POST["InvoiceType"],
             "Status" => $_POST["Status"],
             "InvoiceItems" => $invoiceItems,
-            "WarehouseReceiptStatus" => $_POST["WarehouseReceiptStatus"],
         );
+
+        if (isset($_POST["WarehouseReceiptStatus"])) {
+            $invoice["WarehouseReceiptStatus"] = $_POST["WarehouseReceiptStatus"];
+        }
 
         $result = $api->invoiceSave($invoice);
     }
@@ -94,18 +97,16 @@
                     <div class="align">
                         <label for="Status" class="form-label">وضعیت فاکتور</label>
                         <select class="form-select" name="Status">
-                            <option selected>انتخاب کنید</option>
+                            <option selected value="-1">انتخاب کنید</option>
                             <option value="0">پیش نویس</option>
-                            <option value="1">منتظر تایید</option>
-                            <option value="2">تایید شده</option>
-                            <option value="3">پرداخت شده</option>
+                            <option value="1">تایید شده</option>
                         </select>
                     </div>
 
                     <div class="align">
                         <label for="InvoiceType" class="form-label">نوع فاکتور</label>
                         <select class="form-select" name="InvoiceType">
-                            <option selected>انتخاب کنید</option>
+                            <option selected value="-1">انتخاب کنید</option>
                             <option value="0">فروش</option>
                             <option value="1">خرید</option>
                             <option value="2">برگشت از فروش</option>
@@ -117,7 +118,7 @@
                     <div class="align">
                         <label for="WarehouseReceiptStatus" class="form-label">وضعیت رسید یا حواله انبار</label>
                         <select class="form-select" name="WarehouseReceiptStatus">
-                            <option selected>انتخاب کنید</option>
+                            <option selected value="-1">انتخاب کنید</option>
                             <option value="0">رسید یا حواله انبار صادر نشده است</option>
                             <option value="1">رسید یا حواله انبار ناقص است</option>
                             <option value="2">رسید یا حواله انبار کامل است</option>
