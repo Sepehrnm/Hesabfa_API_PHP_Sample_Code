@@ -10,7 +10,9 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="CSS Files/style.css" />
-    <?php include "./Bootstrap/bootstrap.php";?>
+    <?php include "./Bootstrap/SharedLinks.php";?>
+    <script src="./assets/dx/dx.all.js"></script>
+    <script src="./JS%20Files/app.js"></script>
     <link rel="icon" href="./assets/hesabfaIcon.png">
     <title>صفحه اصلی</title>
 </head>

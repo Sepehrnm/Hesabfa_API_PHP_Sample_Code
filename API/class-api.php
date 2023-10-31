@@ -37,6 +37,41 @@ class Ssbhesabfa_Api
     }
 //================================================================================================
 // HESABFA FUNCTIONS
+
+    public function getWarehouse($data)
+    {
+        $method = 'warehouse/get';
+        return $this->apiRequest($method, $data);
+    }
+//================================================================================================
+    public function getWarehouseById($data)
+    {
+        $method = 'warehouse/GetById';
+        return $this->apiRequest($method, $data);
+    }
+//================================================================================================
+    public function getWarehouseList($data)
+    {
+        $method = 'warehouse/GetReceipts';
+        return $this->apiRequest($method, $data);
+    }
+//================================================================================================
+    public function warehouseSaveWarehouse($deleteOldReceipts, $receipt)
+    {
+        $method = 'warehouse/save';
+        $data = array(
+            'deleteOldReceipts' => (bool)$deleteOldReceipts,
+            'receipt' => $receipt,
+        );
+        return $this->apiRequest($method, $data);
+    }
+//================================================================================================
+    public function deleteWarehouse($data)
+    {
+        $method = 'warehouse/delete';
+        return $this->apiRequest($method, $data);
+    }
+//================================================================================================
     public function savePayment($data)
     {
         $method = 'invoice/savepayment';
